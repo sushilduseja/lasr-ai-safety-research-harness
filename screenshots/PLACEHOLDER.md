@@ -1,28 +1,16 @@
-# Screenshot checklist
+# Screenshot assets to add before submission
 
-Add three real screenshots before final submission.
+Add these three files if you want the repo itself to carry the workshop evidence:
 
-## Screenshot 1 — repo tree + README top
-Must show:
-- `README.md`
-- `CLAUDE.md`
-- `START_HERE.md`
-- `SKILLS/`
-- `examples/`
+1. `01-repo-tree-and-readme.png`
+   - Show: repo tree + top of `README.md`
 
-## Screenshot 2 — one skill file
-Recommended:
-- `SKILLS/skeptical-reviewer/SKILL.md`
-Must show:
-- title
-- AI safety-specific cautions
-- prompt block
+2. `02-skill-file.png`
+   - Show: `SKILLS/skeptical-reviewer/SKILL.md`
+   - Include: title, AI safety-specific cautions, prompt block
 
-## Screenshot 3 — worked example sequence
-Must show:
-- `01_paper_to_plan.md`
-- `05_skeptical_review.md`
-- `04b_revised_plan_after_skeptical_review.md`
+3. `03-worked-example-sequence.png`
+   - Show: `01_paper_to_plan.md`, `05_skeptical_review.md`, and `04b_revised_plan_after_skeptical_review.md`
+   - Goal: prove that critique changes the plan
 
-Goal:
-Show that the harness does not just generate artifacts — it changes the plan after critique.
+These files are optional for the repo, but the final Google Doc submission should include the three screenshots in some form.

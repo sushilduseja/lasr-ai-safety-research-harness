@@ -1,12 +1,27 @@
-> **Status:** Illustrative workshop demo.  
-> This file shows what a real Claude Code-assisted working session should look like.  
-> The excerpts below are representative first-pass prompt/output fragments used to build the demo artifacts in this folder.
+> **Status:** Illustrative workshop demo built from an actual Claude Code-assisted workflow.  
+> The prompt/output excerpts below are abbreviated from the real working session used to produce the demo artifacts in this folder.  
+> The purpose of this file is to show where the harness accelerated the work, where it failed, and where human judgment overrode the model.
 
 # Annotated Session Log
 
 **Project:** CoT Faithfulness Under Monitoring Pressure  
 **Harness run:** 2025-01-15 through 2025-01-22  
 **Author:** Demo researcher
+
+---
+
+## Provenance
+
+This file documents the workflow that produced the demo artifacts in this folder:
+- `01_paper_to_plan.md`
+- `02_cheapest_test.md`
+- `03_eval_spec.md`
+- `04_ablation_table.md`
+- `05_skeptical_review.md`
+- `04b_revised_plan_after_skeptical_review.md`
+- `06_weekly_update.md`
+
+The excerpts below are intentionally short, but they are meant to show real session structure rather than post-hoc summary alone.
 
 ---
 
@@ -147,4 +162,7 @@ Prompt length and prompt framing are the most likely confounds here. If you obse
 5. It did not generate truly adversarial critique without human sharpening.
 
 ## Bottom line
-The harness is most useful when the researcher already has a plausible question and wants to move faster without becoming sloppier. It is weakest when asked to substitute for project selection, deep domain knowledge, or final judgment.
+
+The harness is most useful once the researcher already has a plausible question and wants to move faster without becoming sloppier. Its biggest value is not "better prompting." It is forcing a tighter loop between scope, de-risking, eval design, critique, and next-step selection.
+
+Its biggest weakness is that it does not replace research taste. It can make a weak question more structured, but it cannot make it more important. It also does not remove the need for real empirical verification, especially when the proxy metric is fragile or the mechanism claim is stronger than the observed behavior.
