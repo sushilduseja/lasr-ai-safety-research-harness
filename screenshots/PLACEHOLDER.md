@@ -1,31 +1,16 @@
 # Screenshot assets
 
-This folder should contain the three screenshot files used in the final Google Doc submission.
+Actual files in this folder:
 
-## Required files
-1. `01-repo-tree-and-readme.png`
-2. `02-skill-file.png`
-3. `03-worked-example-sequence.png`
-
-## What each file should show
-
-### 01-repo-tree-and-readme.png
-- repo tree
-- top of `README.md`
-
-### 02-skill-file.png
-- `SKILLS/skeptical-reviewer/SKILL.md`
-- title
-- AI safety-specific cautions
-- prompt block
-
-### 03-worked-example-sequence.png
-- `01_paper_to_plan.md`
-- `05_skeptical_review.md`
-- `04b_revised_plan_after_skeptical_review.md`
+| File | Content |
+|------|---------|
+| `01-repo-tree-and-readme.png` | GitHub repo root showing file tree + README |
+| `02-skill-file.png` | `SKILLS/skeptical-reviewer/SKILL.md` showing title, AI safety cautions, prompt block |
+| `03a-plan.png` | `examples/cot-faithfulness-demo/01_paper_to_plan.md` (initial plan) |
+| `03b-review.png` | `examples/cot-faithfulness-demo/05_skeptical_review.md` (skeptical critique) |
+| `03c-revised.png` | `examples/cot-faithfulness-demo/04b_revised_plan_after_skeptical_review.md` (revised plan) |
 
 ## Purpose
-These screenshots are the visual proof that:
-- the artifact is cloneable and navigable
-- the skills are reusable
-- the workflow changes after critique rather than just generating standalone notes
+- Screenshot 1: proves the artifact is a cloneable, navigable repo
+- Screenshot 2: proves the skills are concrete and reusable
+- Screenshots 3a–3c: prove the workflow changes after critique (plan → review → revision)
