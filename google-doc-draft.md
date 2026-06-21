@@ -24,7 +24,7 @@ Shows that the artifact is a cloneable, navigable repo rather than a loose promp
 Shows the fixed skill format and the copy-pastable prompt block. This matters because it makes the pack reusable under time pressure: once fellows understand one skill, they understand all seven.
 
 **Screenshot 3 — worked example sequence**  
-Shows the path from `input_paper_abstract.md` through `01_paper_to_plan`, `02_cheapest_test`, `03_eval_spec`, `04_ablation_table`, `05_skeptical_review`, `04b_revised_plan_after_skeptical_review`, and `06_weekly_update`. This demonstrates that the harness produces a complete research loop, not isolated notes.
+Shows the path from first-pass plan to skeptical review to revised plan. This is the most important evidence in the artifact: the harness does not just generate documents, it makes critique causally change the workflow.
 
 ### What fellows leave with
 
