@@ -1,3 +1,7 @@
+> **Status:** Illustrative workshop demo.  
+> This folder demonstrates the harness workflow on a real paper and a hypothetical extension question.  
+> Unless a file explicitly says otherwise, the outputs below are demo artifacts used to show process quality, not claims that a real experiment was run.
+
 # Input: Lanham et al. 2023 — Measuring Faithfulness in Chain-of-Thought Reasoning
 
 ## Abstract (from arXiv:2307.13702)

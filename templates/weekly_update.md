@@ -16,7 +16,7 @@
 3. Check whether prompt length is confounded with condition
 
 ## Blockers
-- Full Lanham eval dataset not yet accessed. Need dataset transfer or equivalent eval script. Owner: [Supervisor name]. Due: 2025-01-24.
+- Full Lanham eval dataset not yet accessed. Need dataset transfer or equivalent eval script. Owner: Supervisor. Due: 2025-01-24.
 
 ## Decision needed from supervisor
 - Should we proceed with A3 in parallel with the full run, or wait for n=200 results first? Parallel saves a week but risks conflating signals.

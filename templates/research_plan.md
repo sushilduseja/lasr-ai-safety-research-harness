@@ -2,7 +2,7 @@
 
 **Project:** CoT Faithfulness Under Monitoring Pressure
 **Date:** 2025-01-15
-**Researcher:** [Name]
+**Researcher:** Demo researcher
 
 ## Research question
 Does Chain-of-Thought faithfulness degrade when the model believes its reasoning is being monitored for consistency rather than accuracy?

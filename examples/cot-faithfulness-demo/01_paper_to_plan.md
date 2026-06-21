@@ -1,3 +1,7 @@
+> **Status:** Illustrative workshop demo.  
+> This folder demonstrates the harness workflow on a real paper and a hypothetical extension question.  
+> Unless a file explicitly says otherwise, the outputs below are demo artifacts used to show process quality, not claims that a real experiment was run.
+
 # 01 — Paper to Plan
 
 **Skill used:** paper-to-plan

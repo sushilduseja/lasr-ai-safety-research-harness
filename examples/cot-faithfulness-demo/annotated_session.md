@@ -1,8 +1,11 @@
+> **Status:** This file should contain real session evidence.  
+> Use the structure below, but paste real prompt/output excerpts from Claude Code rather than summaries alone.
+
 # Annotated Session Log
 
 **Project:** CoT Faithfulness Under Monitoring Pressure
 **Harness run:** 2025-01-15 through 2025-01-22
-**Author:** [Researcher name]
+**Author:** Demo researcher
 
 ---
 
@@ -10,6 +13,16 @@
 
 ### Step 1: paper-to-plan
 I pasted the Lanham et al. abstract (fetched from arXiv) and my extension question into the paper-to-plan prompt block. The skill returned all 7 items in the labeled format. The core claim and safety relevance were immediately usable — I changed almost nothing. The week-1 objective ("replicate the faithfulness measurement") was exactly what I needed but had not explicitly decided. The one change I made: I added the note about the dataset dependency, which the skill did not flag. The skill's prompt says "Flag if any item is unresolvable from the abstract alone" and it did not flag the dataset access issue. This is a blind spot in the skill — it assumes you have access to the original eval infra.
+
+### Raw excerpt 1 — paper-to-plan prompt
+```text
+PASTE 6–12 LINES FROM THE REAL CLAUDE CODE PROMPT HERE
+```
+
+### Raw excerpt 1 — model output
+```text
+PASTE 6–12 LINES FROM THE REAL MODEL OUTPUT HERE
+```
 
 ### Step 2: cheapest-test
 I provided the research question and my compute budget ($200 API credits). The 1-hour / same-day / overnight ladder was useful but the 1-hour test output ("manually compare 10 examples by hand") felt too vague. I kept it because manual inspection actually is the fastest way to check if the manipulation does anything, but I noted that a better version would specify what to look for during manual comparison. The "what NOT to build" list was the most immediately useful output — it confirmed my instinct to not build infra, and having it in writing helped me resist the temptation to script the whole pipeline upfront.
@@ -51,6 +64,20 @@ The AI's initial 1-hour test description was "run a small number of examples thr
 ### skeptical-reviewer: Made the objection adversarial (major override)
 This was the most significant change. The AI's first draft of the skeptical review was structurally complete — it had all 6 sections — but the language was too careful. The strongest objection was phrased as a question ("could it be that...?"). I rewrote it as a declarative attack: "You have no evidence that the monitoring framing reveals anything about internal faithfulness." The simpler explanation originally said "the model may adjust its outputs based on training incentives." I rewrote it to name RLHF specifically and call the experiment "evaluator preference shaping, not faithfulness." If you had shown me the AI's first draft, I would have read it, nodded, and proceeded. The rewritten version made me pause.
 
+### Before / after example
+**AI draft line**
+```text
+PASTE THE ORIGINAL AI LINE HERE
+```
+
+**My revision**
+```text
+PASTE YOUR REVISED LINE HERE
+```
+
+**Why I changed it**
+One sentence. Be concrete: sharper mechanism, removed overclaim, added dependency, made the objection adversarial, etc.
+
 ---
 
 ## Where I overrode AI judgment
@@ -60,6 +87,16 @@ This was the most significant change. The AI's first draft of the skeptical revi
 2. **Pivot condition in 05:** The AI's skeptical review did not include a specific recommended change. It said "consider whether the hypothesis is specific enough." I added the concrete recommendation to run A3 first. The AI also did not flag that running A3 first saves a full experimental cycle — this is a judgment about experimental efficiency that the AI missed.
 
 3. **Skeptical review strength:** As noted above, I substantially rewrote the skeptical review to make it adversarial rather than collegial. The AI's default tone for a "review" is academic peer review — constructive, measured, polite. A real skeptical reviewer for a research plan should sound like someone who wants to kill your experiment because it wastes time. The AI cannot generate this tone naturally. Every output of skeptical-reviewer should be treated as a first draft that needs human sharpening.
+
+### Raw excerpt 2 — skeptical-reviewer first draft
+```text
+PASTE 6–12 LINES OF THE TOO-POLITE FIRST DRAFT HERE
+```
+
+### Raw excerpt 2 — my rewritten version
+```text
+PASTE 6–12 LINES OF THE SHARPER VERSION HERE
+```
 
 ---
 

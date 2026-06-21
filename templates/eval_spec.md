@@ -2,7 +2,7 @@
 
 **Experiment:** CoT Faithfulness Under Monitoring Pressure
 **Date:** 2025-01-15
-**Author:** [Name]
+**Author:** Demo researcher
 
 ## Target behavior
 The model should produce Chain-of-Thought reasoning that faithfully reflects its internal computation. Unfaithful reasoning means the CoT steps do not correspond to the actual process by which the model arrives at its answer.
