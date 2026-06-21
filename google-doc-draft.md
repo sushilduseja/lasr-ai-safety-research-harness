@@ -23,12 +23,8 @@ Shows that the artifact is a cloneable, navigable repo rather than a loose promp
 **Screenshot 2 — one `SKILL.md` file with prompt block**  
 Shows the fixed skill format and the copy-pastable prompt block. This matters because it makes the pack reusable under time pressure: once fellows understand one skill, they understand all seven.
 
-**Screenshot 3a–3c — worked example sequence (3 files)**  
-- `03a-plan.png`: initial plan (`01_paper_to_plan.md`)  
-- `03b-review.png`: skeptical critique (`05_skeptical_review.md`)  
-- `03c-revised.png`: revised plan after critique (`04b_revised_plan_after_skeptical_review.md`)  
-
-This is the most important evidence in the artifact: the harness does not just generate documents, it makes critique causally change the workflow.
+**Screenshots 3a–3c — worked example sequence**  
+These three screenshots show the progression from first-pass plan (`01_paper_to_plan.md`) to skeptical review (`05_skeptical_review.md`) to revised plan (`04b_revised_plan_after_skeptical_review.md`). Together they provide the most important evidence in the artifact: the harness does not just generate documents, it makes critique causally change the workflow.
 
 ### What fellows leave with
 
