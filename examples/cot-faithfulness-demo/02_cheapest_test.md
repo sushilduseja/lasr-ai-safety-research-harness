@@ -4,48 +4,63 @@
 
 # 02 — Cheapest Test
 
-**Skill used:** cheapest-test
-**Input:** Research question from 01_paper_to_plan.md — "Does monitoring framing reduce CoT faithfulness?"
-**Compute available:** $200 API credits, no local GPU
+**Skill used:** cheapest-test  
+**Input:** Research question from 01_paper_to_plan.md — "Does monitoring framing reduce measured CoT faithfulness?"  
+**Compute available:** $200 API credits, no local GPU  
 **Date:** 2025-01-15
 
 ---
 
 ## 1-hour test
 
-**What:** Manually prompt GPT-4 or Claude with two monitoring conditions on 10 examples from the Lanham et al. eval set. Compare CoT steps by hand — look for qualitative differences in reasoning structure, hedging, or self-correction.
+**What:** Manually compare two prompt framings on 10 examples:
+- baseline CoT prompt
+- overt consistency-monitoring prompt
 
-**How:** Copy 10 examples from the paper's known eval categories (e.g., 2 easy, 3 medium, 5 hard). Run each with a standard CoT prompt and a monitoring-framing CoT prompt. Compare the CoT outputs side by side.
+**How:** Use 10 examples spanning easier and harder cases. Compare outputs side by side for:
+- changes in reasoning structure
+- hedging
+- self-correction
+- obvious answer-distribution shifts
 
-**Expected output:** A qualitative assessment: "CoT in the monitoring condition shows more self-correction / more hedging / no visible difference." This is not a measurement — it is an existence proof of whether the manipulation changes anything at all.
+**Expected output:** A qualitative answer to one question: does the manipulation visibly change behavior at all?
 
 ## Same-day test
 
-**What:** Run both conditions on 50 examples from the Lanham eval set (or equivalent) using an existing eval script. Report faithfulness score delta.
+**What:** Run a small subset comparison under:
+- baseline
+- overt consistency-monitoring
+- accuracy-monitoring control
 
-**How:** If the Lanham eval script is available, run it on a held-out 50-example subset under both prompt conditions. If the script is not available, approximate: use the direct-answer vs. CoT-conditioned-answer agreement method described in the paper. Run 3 seeds per condition.
+**How:** Use a Lanham-style faithfulness proxy on ~50 examples total. Do one clean pass per condition, then estimate the observed delta with a simple bootstrap or resampling-based uncertainty summary. Do not build new infrastructure.
 
-**Expected output:** Faithfulness scores with per-condition means and standard deviations. A delta estimate (even if noisy). This tells you whether the effect direction matches the hypothesis and whether the effect size is large enough to detect with n=50.
+**Expected output:** A first-pass answer to whether:
+1. there is any directional signal, and  
+2. that signal survives the monitoring control.
 
 ## Overnight test
 
-**What:** Run both conditions across the full eval set (200+ examples) on one frontier model. Produce confidence intervals and effect size estimates.
+**What:** Only if the same-day test leaves the question live, expand to a larger subset and rerun:
+- baseline
+- overt consistency-monitoring
+- accuracy-monitoring control
 
-**How:** Parallel API calls across the full eval set under both conditions. Use bootstrapping to estimate confidence intervals on the delta.
+**How:** Scale to a larger evaluation set, keep the same prompt structure, and reuse the same metric approximation. The point of the overnight run is not "final significance"; it is to see whether the directional pattern persists after the control structure is in place.
 
-**Expected output:** A precise estimate of the monitoring framing effect, with confidence intervals. This is the result you would report.
+**Expected output:** A tighter estimate of whether the main effect survives the control comparison strongly enough to justify further work.
 
 ## What each test de-risks
 
-- **1-hour test** de-risks: whether the monitoring manipulation has any observable effect at all. A negative result here (no visible difference) would suggest the manipulation is too weak.
-- **Same-day test** de-risks: whether the effect is measurable and in the predicted direction. A null result at n=50 with a small effect size would signal you need larger n, a stronger manipulation, or a different metric.
-- **Overnight test** de-risks: whether the effect is real and how large it is. A null result here with adequate power would mean the hypothesis is not supported.
+- **1-hour test** de-risks whether the prompt manipulation visibly changes model behavior at all.
+- **Same-day test** de-risks whether any apparent effect is specific enough to survive the monitoring control.
+- **Overnight test** de-risks whether the pattern is stable enough to justify a more serious follow-up.
 
 ## What NOT to build yet
 
-- **Fine-tuning or RLHF:** Do not train models for this experiment. All tests use API prompting on existing frontier models.
-- **New eval suite:** Use the existing Lanham et al. eval set or a close reproduction. Do not build a new eval until the overnight test shows a signal worth deeper investigation.
-- **Custom data pipeline:** Manual data handling for n < 500 does not need a pipeline. Use a script, not a framework.
-- **Multi-model comparison:** Run on one model until the effect is established. Do not scale to multiple models until the overnight test on the primary model is conclusive.
+- **Fine-tuning or RLHF** — not justified before prompt-only probing shows a live question.
+- **A new eval suite** — unnecessary before control-sensitive signal exists.
+- **A custom data pipeline** — unnecessary at this scope.
+- **A multi-model comparison** — premature before one-model behavior is interpretable.
+- **A mechanism story** — do not claim internal-faithfulness implications before output-level effects are even stable.
 
-*Infra is not a first step. Default to prompting before fine-tuning. Default to small models before large ones. If the 1-hour test is unclear, the research question is unclear.*
+*Infra is not a first step. Prompt-only probing is the default. If the same-day test does not survive the control comparison, do not scale the run.*

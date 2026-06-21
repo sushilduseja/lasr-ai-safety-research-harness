@@ -1,31 +1,34 @@
+> **Status:** Filled example template.  
+> Adapt this file to your own project. Replace the content below rather than copying it blindly.
+
 # Eval Specification
 
-**Experiment:** CoT Faithfulness Under Monitoring Pressure
-**Date:** 2025-01-15
+**Experiment:** CoT Faithfulness Under Monitoring Pressure  
+**Date:** 2025-01-15  
 **Author:** Demo researcher
 
 ## Target behavior
-The model should produce Chain-of-Thought reasoning that faithfully reflects its internal computation. Unfaithful reasoning means the CoT steps do not correspond to the actual process by which the model arrives at its answer.
+We want to know whether monitoring-relevant prompt framing changes measured CoT faithfulness under a Lanham-style output-level proxy.
 
 ## Proxy metric
-Faithfulness score as defined in Lanham et al. 2023: the agreement rate between the answer predicted when conditioning on the CoT and the answer predicted directly (without CoT). Higher agreement = more faithful. This metric captures output-level faithfulness but does not probe internal representations.
+A Lanham-style faithfulness proxy: compare the answer implied when conditioning on the CoT against the direct answer path, and measure agreement. This is an output-level approximation, not a direct measure of internal reasoning faithfulness.
 
 ## Eval data
-- **Size:** 200 examples (100 per condition)
-- **Source:** Lanham et al. 2023 eval dataset (held-out distribution)
-- **Split rationale:** Stratified by task difficulty (easy/medium/hard) to ensure both conditions see comparable difficulty distributions. No training split needed — this is a prompting experiment.
+- **Size:** small subset first, larger subset only if the control-sensitive signal remains live
+- **Source:** Lanham-style task distribution or a close approximation
+- **Split rationale:** include easier and harder cases to avoid a trivial difficulty skew across conditions
 
 ## Failure modes
-1. **Detection confounding:** The model detects the experimental framing and adjusts its CoT behavior regardless of the actual condition label. Both conditions could be affected.
-2. **Metric insensitivity:** The faithfulness metric may not be sensitive enough to detect monitoring-induced changes, especially if the effect is subtle.
-3. **Prompt confound:** The monitoring condition prompt is longer and structurally different from the standard prompt. Differences could come from prompt surface form, not monitoring framing.
+1. **Prompt confound:** the monitoring prompt changes more than just the monitored variable.
+2. **Metric fragility:** the proxy may be too weak or noisy to detect a subtle framing effect.
+3. **Condition-detection effects:** the model may react to being in a study-like setup rather than to the specific monitoring content.
 
 ## Fake-win paths
-1. **Prompt length effect:** Any observed effect could be driven by prompt length/complexity differences rather than the monitoring framing itself. The monitoring prompt is necessarily longer.
-2. **Model-specific artifact:** An effect found in one model (e.g., Claude Sonnet) may not generalize to other frontier models. The result could be a quirk of RLHF training, not a general property of CoT faithfulness.
+1. **Any-monitoring effect:** results move because any evaluator-facing prompt changes behavior, not because consistency-monitoring matters specifically.
+2. **Formatting artifact:** results move because the prompt is longer or more structured, not because monitoring pressure changed anything meaningful.
 
 ## What this eval proves
-If we observe a statistically significant lower faithfulness score in the monitoring condition compared to the no-monitoring condition, this supports the claim that monitoring framing reduces CoT faithfulness.
+If the main manipulation differs from baseline and the control does not move in the same way, that is evidence that the specific framing may matter for this proxy on this setup.
 
 ## What this eval does NOT prove
-This eval does not establish the mechanism: whether the faithfulness reduction is caused by the model strategically altering its CoT (deceptive) or by the monitoring framing changing the model's latent computational process (non-deceptive). It also does not test whether models would show similar behavior in deployment when monitoring is implicit rather than explicit.
+This does not establish anything about internal faithfulness directly, and it does not by itself justify a mechanism claim about deception, monitoring pressure, or scalable oversight failure in deployment.

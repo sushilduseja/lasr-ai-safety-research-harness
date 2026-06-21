@@ -4,35 +4,35 @@
 
 # 01 — Paper to Plan
 
-**Skill used:** paper-to-plan
-**Input:** Lanham et al. 2023 abstract + extension question about monitoring pressure
+**Skill used:** paper-to-plan  
+**Input:** Lanham et al. 2023 abstract + extension question about monitoring pressure  
 **Date:** 2025-01-15
 
 ---
 
 ## Core claim
-Lanham et al. established that Chain-of-Thought reasoning in LLMs is not consistently faithful to the model's actual computation, with faithfulness varying by task and model size, and larger models producing less faithful reasoning on most tasks studied.
+Lanham et al. show that Chain-of-Thought reasoning is not uniformly faithful to the model's actual reasoning process, and that faithfulness varies by task and tends to degrade as models become larger and more capable.
 
 ## Safety relevance
-If faithfulness degrades further under adversarial monitoring conditions — specifically when the model believes its CoT is being evaluated for consistency — then scalable oversight methods that depend on CoT to detect misaligned reasoning may systematically overestimate alignment safety.
+If faithfulness degrades further under monitoring-relevant prompt framing, scalable oversight methods that rely on reading CoT may produce misleading assurance signals about what the model is actually doing.
 
 ## Key open uncertainty
-The paper measures faithfulness under neutral conditions (standard prompts, no framing about monitoring). It does not test whether the model's awareness of being evaluated for reasoning quality changes the faithfulness of its CoT. This is a known path to unfaithfulness in human cognition — the observer effect — and its analog in LLMs is unstudied.
+The paper studies faithfulness under neutral prompt conditions. It does not test whether telling the model that its reasoning will be reviewed changes measured faithfulness.
 
 ## Tractable extension question
-Does informing a model that its chain of thought will be monitored for consistency (vs. not informing it) produce a statistically significant reduction in CoT faithfulness, as measured by the Lanham et al. faithfulness metric?
+Does adding explicit consistency-monitoring framing to a standard CoT prompt change a Lanham-style faithfulness metric, relative to a baseline prompt and a monitoring control condition?
 
-This isolates exactly one variable: the monitoring framing. Everything else (model, eval set, metric, procedure) stays fixed.
+This isolates one variable: monitoring-relevant framing.
 
 ## Success criterion
-A statistically significant difference in faithfulness scores between the monitoring condition and the no-monitoring condition (p < 0.05, two-tailed test, minimum n=100 per condition), with the monitoring condition showing lower faithfulness.
+Observe a stable condition difference that survives the monitoring control and is large enough to justify a larger follow-up.
 
 ## Failure criterion
-No statistically significant difference between conditions. This is informative: it would suggest that CoT faithfulness is robust to the monitoring framing manipulation, at least at the granularity captured by the Lanham metric. The next question would be whether a stronger manipulation (e.g., telling the model its outputs determine its continued training) produces an effect.
+No meaningful difference, or a difference that disappears once the monitoring control is added. In that case, the current framing is not worth scaling as-is.
 
 ## Week 1 objective
-Replicate the Lanham et al. faithfulness measurement on one frontier model (Claude Sonnet) using their eval setup, producing a baseline faithfulness score per task category. Before any monitoring condition is added.
+Produce a baseline measurement and one first-pass de-risking result on a small subset before committing to any larger run.
 
 ---
 
-*Flag: All items resolvable from the abstract and extension question. Week-1 objective requires access to the Lanham eval dataset or a faithful reproduction of their eval setup — this is a dependency worth surfacing early.*
+*Flag: The extension question is resolvable from the abstract. A faithful implementation still depends on access to a Lanham-style dataset and metric approximation or reproduction path, which is a real dependency to surface early.*
