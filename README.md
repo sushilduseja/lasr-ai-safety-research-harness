@@ -65,6 +65,8 @@ Extension question: whether explicit monitoring framing further degrades CoT fai
 The demo is a **worked example for workshop purposes**, not a claim that a real experiment was run.
 The screenshot assets used in the final submission are documented in `screenshots/README.md`.
 
+Reference paper: Lanham et al. (2023), *Measuring Faithfulness in Chain-of-Thought Reasoning*, arXiv:2307.13702. This worked example uses the paper as a cited workshop anchor and does not claim exact reproduction.
+
 ## Why this is AI safety-specific
 The skills encode defaults that matter disproportionately in alignment work:
 - fastest informative test before expensive infra

@@ -16,6 +16,13 @@ CoT faithfulness connects directly to scalable oversight: if a model's stated re
 
 Does CoT faithfulness degrade further when the model believes its chain of thought is being monitored for consistency rather than accuracy?
 
+## Source note
+
+The abstract above is quoted from:
+Lanham et al. (2023), *Measuring Faithfulness in Chain-of-Thought Reasoning*, arXiv:2307.13702.
+
+It is included here solely to anchor the worked example. The extension question and downstream artifacts in this folder are workshop/demo materials, not claims of reproduction.
+
 ## Assumption note
 
 This extension is hypothetical. It is used to demonstrate the harness workflow, not to report real results.
