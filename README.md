@@ -21,7 +21,7 @@ Each skill is a single `SKILL.md` file with:
 ## What problem it solves
 Fluent AI use is not systematic AI use.
 
-Strong researchers already use Claude Code, summarize papers, and draft code with AI. The main gap is usually not basic prompting ability. It is the absence of repeatable defaults for:
+Strong researchers already use Claude Code, summarize papers with AI, and mix hand-written and AI-assisted code during research work. The main gap is usually not basic prompting ability. It is the absence of repeatable defaults for:
 - scoping tractable extensions
 - choosing the cheapest informative test
 - designing evals that resist fake wins
@@ -63,6 +63,7 @@ Lanham et al. 2023, *Measuring Faithfulness in Chain-of-Thought Reasoning*
 Extension question: whether explicit monitoring framing further degrades CoT faithfulness.
 
 The demo is a **worked example for workshop purposes**, not a claim that a real experiment was run.
+The screenshot assets used in the final submission are documented in `screenshots/README.md`.
 
 ## Why this is AI safety-specific
 The skills encode defaults that matter disproportionately in alignment work:

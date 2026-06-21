@@ -14,8 +14,8 @@
 - An annotated session log in `examples/cot-faithfulness-demo/annotated_session.md`
 
 ## What this repo has been exercised on
-- A representative Claude Code-style workflow for the included CoT faithfulness example
-- Conversion of one paper + extension question into a full research workflow artifact chain
+- A Claude Code-style workflow for the included CoT faithfulness example
+- Conversion of one paper + one extension question into a full research-workflow artifact chain
 
 ## What this repo has not been validated on
 - Direct portability to GPT-4o or Gemini interfaces
