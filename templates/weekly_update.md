@@ -1,25 +1,30 @@
+> **Status:** Filled example template.  
+> Adapt this file to your own project. Replace the content below rather than copying it blindly.
+
 # Weekly Update
 
-**Week:** 2
-**Project:** CoT Faithfulness Under Monitoring Pressure
+**Week:** 2  
+**Project:** CoT Faithfulness Under Monitoring Pressure  
 **Date:** 2025-01-22
 
 ## Last week (done)
-- Replicated Lanham et al. faithfulness measurement on Claude Sonnet (n=50 per condition)
-- Ran both monitoring conditions on the held-out eval split
-- Faithfulness score delta of 0.04 (monitoring condition lower), not statistically significant
-- Drafted ablation plan for Week 2
+- Built a first-pass plan from the paper and extension question
+- Designed the cheapest-test ladder
+- Wrote the eval spec with explicit fake-win paths
+- Added a monitoring control after skeptical review
+- Ran a small illustrative subset comparison
 
 ## This week (plan)
-1. Expand sample to 200 examples (n=100 per condition) to get adequate power
-2. Run ablation A3 (accuracy monitoring control) in parallel
-3. Check whether prompt length is confounded with condition
+1. Run the monitoring control before any larger sweep
+2. Decide whether the observed directional difference survives the control
+3. Only then decide whether expanding scope is worth it
 
 ## Blockers
-- Full Lanham eval dataset not yet accessed. Need dataset transfer or equivalent eval script. Owner: Supervisor. Due: 2025-01-24.
+- Need a verified implementation of the Lanham-style metric or a clearly documented approximation. Owner: researcher. Due: next working session.
+- Need a stable eval subset definition so later comparisons are actually reproducible. Owner: researcher. Due: next working session.
 
 ## Decision needed from supervisor
-- Should we proceed with A3 in parallel with the full run, or wait for n=200 results first? Parallel saves a week but risks conflating signals.
+If the control condition moves in the same direction as the main manipulation, should this line be killed immediately or reframed as a generic monitoring-pressure question?
 
 ## Confidence in timeline (1–5 with note)
-**3/5** — Dependent on dataset access. If the dataset arrives by Thursday, the expanded run finishes by end of Week 2 and results are ready for Week 3 review.
+**3/5** — The next decision is straightforward, but it depends on whether the control comparison meaningfully disambiguates the interpretation.

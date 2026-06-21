@@ -1,29 +1,37 @@
+> **Status:** Filled example template.  
+> Adapt this file to your own project. Replace the content below rather than copying it blindly.
+
 # Research Plan
 
-**Project:** CoT Faithfulness Under Monitoring Pressure
-**Date:** 2025-01-15
+**Project:** CoT Faithfulness Under Monitoring Pressure  
+**Date:** 2025-01-15  
 **Researcher:** Demo researcher
 
 ## Research question
-Does Chain-of-Thought faithfulness degrade when the model believes its reasoning is being monitored for consistency rather than accuracy?
+Does measured CoT faithfulness change when the model is explicitly told that its reasoning will be reviewed for internal consistency?
 
 ## Safety relevance
-If models produce less faithful reasoning under adversarial monitoring pressure, scalable oversight techniques that rely on CoT faithfulness may give misleading assurance signals.
+If monitoring-relevant prompt framing changes measured faithfulness, scalable oversight methods that rely on CoT may produce misleading assurance signals.
 
 ## Extension
-Two-condition experiment (monitoring framing vs. no monitoring framing) using the Lanham et al. 2023 faithfulness eval setup on a frontier model.
+Prompt-only comparison between:
+- a standard CoT condition
+- a consistency-monitoring condition
+- a monitoring control condition
+
+using a Lanham-style faithfulness metric approximation on one model.
 
 ## Week 1 goal
-Replicate the Lanham et al. faithfulness measurement on one model (Claude Sonnet) using their eval setup before adding the monitoring condition.
+Produce a baseline measurement and a first-pass de-risking result on a small subset before committing to a larger run.
 
 ## Success criterion
-Statistically significant difference in faithfulness score between monitoring and no-monitoring conditions (p < 0.05, two-tailed, minimum n=100 per condition).
+Observe a stable condition difference that survives the monitoring control and is large enough to justify a larger follow-up.
 
 ## Failure criterion
-No statistically significant difference. This would suggest monitoring pressure is not the variable driving faithfulness changes, and the hypothesis needs reformulation.
+No meaningful difference, or a difference that disappears once the monitoring control is added. In that case, the current framing is not worth scaling as-is.
 
 ## Compute budget
-$200 API credits for Week 1-2 prompting experiments. No training compute needed unless signal appears.
+API-only for the first pass. No training or custom infrastructure unless early signal survives control checks.
 
 ## Supervisor check-in cadence
-Weekly Wednesday sync. Escalation trigger: any condition shows effect size > 0.1 before n=50.
+Weekly sync, with earlier escalation only if the control comparison materially changes the interpretation.

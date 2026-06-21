@@ -1,26 +1,33 @@
 # Validation status
 
-## What this repo has been tested on
-- Claude Code workflow for the included CoT faithfulness worked example
-- End-to-end artifact flow:
-  - abstract
+## Evidence included in this repo
+- A full worked example in `examples/cot-faithfulness-demo/`
+- A stepwise artifact chain:
+  - paper abstract
   - research plan
-  - cheapest test ladder
+  - cheapest-test ladder
   - eval spec
   - ablation plan
   - skeptical review
+  - revised plan after critique
   - weekly update
+- An annotated session log in `examples/cot-faithfulness-demo/annotated_session.md`
+
+## What this repo has been exercised on
+- A representative Claude Code-style workflow for the included CoT faithfulness example
+- Conversion of one paper + extension question into a full research workflow artifact chain
 
 ## What this repo has not been validated on
-- direct portability to GPT-4o or Gemini interfaces
-- live integration with a real reproduction codebase
-- non-LLM domains
-- fully automated chaining between skills
+- Direct portability to GPT-4o or Gemini interfaces
+- Live integration with a real reproduction codebase
+- Non-LLM domains
+- Fully automated chaining between skills
+- Repeated use across multiple independent projects
 
 ## Known limits
 1. The skills are strongest for empirical LLM alignment work, not all AI safety research.
 2. The worked example is illustrative. It demonstrates workflow quality, not experimental truth.
-3. `skeptical-reviewer` requires human sharpening. AI outputs are usually too polite on the first pass.
+3. `skeptical-reviewer` usually needs human sharpening because AI outputs tend to be too polite on the first pass.
 4. `paper-to-plan` and `eval-design` can miss hidden infrastructure dependencies unless the user supplies them explicitly.
 5. `writeup-scaffold` should not be used until the result is genuinely decision-ready.
 
